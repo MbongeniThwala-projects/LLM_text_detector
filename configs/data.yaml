@@ -1,0 +1,21 @@
+raw_dir: data/raw
+processed_dir: data/processed
+
+files:
+  p7: train_essays_7_prompts.csv
+  p7v2: train_essays_7_prompts_v2.csv
+  rd1: train_essays_RDizz13_seven_v1.csv
+  rd2: train_essays_RDizz13_seven_v2.csv
+
+min_words: 50
+
+minhash:
+  num_prem: 128
+  shingle_size: 5
+  threshold: 0.5
+
+split:
+  seed: 42
+  n_folds: 20
+  train_folds: 14
+  val_folds: 3
