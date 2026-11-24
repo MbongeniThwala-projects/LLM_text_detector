@@ -1,0 +1,23 @@
+data_path: data/processed/essays.parquet
+model_dir: models
+report_dir: reports
+
+defaults:
+  ngram_range: [1, 2]
+  min_df: 3
+  sublinear_tf: true
+  C: 10
+  augmentation_copies: 0
+  augmentation_min_words: 20
+  augmentation_seed: 0
+
+runs:
+  baseline: {}
+  augemented:
+    augmentation_copies: 2
+
+evaluation:
+  fpr_budget: 0.01
+  length_grid: [20, 30, 45, 60, 100, 200]
+  mixed_length_seed: 123
+  mixed_min_words: 20
