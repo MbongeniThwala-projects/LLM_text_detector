@@ -66,5 +66,15 @@ def main(argv=None) -> None:
 
     out = Path(cfg["report_dir"])
     out.mkdir(parents=True, exist_ok=True)
+    path = out / f"{args.run}_{args.split}.json"
+    path.write_text(json.dumps(report, indent=2, default=_to_json))
+
+    rows = {"full_text": report["full_text"], "mixed_length": report["mixed_length"]}
+    rows.update({f"{n} words": r for n, r in report["by_length"].items()})
+    print(pd.DataFrame(rows).T.round(3))
+    print(f"wrote {path}")
+
+if __name__ == "__main__":
+    main()
 
     
